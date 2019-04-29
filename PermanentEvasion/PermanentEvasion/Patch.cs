@@ -1,5 +1,4 @@
 ﻿using BattleTech;
-using BattleTech.UI;
 using Harmony;
 using System;
 using System.Collections.Generic;
@@ -32,13 +31,22 @@ namespace PermanentEvasion {
                     }
                 }
                 int evasivePipsCurrent = __instance.EvasivePipsCurrent;
-                if (Fields.LoosePip) {
+                if (attackSequence.attackDidDamage || Fields.LoosePip) {
                     __instance.ConsumeEvasivePip(true);
                     Fields.LoosePip = false;
                 }
                 int evasivePipsCurrent2 = __instance.EvasivePipsCurrent;
-                if (evasivePipsCurrent2 < evasivePipsCurrent && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
+                if (evasivePipsCurrent2 < evasivePipsCurrent && attackSequence.attackDidDamage && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
+                    __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "HIT: -1 EVASION", FloatieMessage.MessageNature.Debuff));
+                }
+                else if (evasivePipsCurrent2 < evasivePipsCurrent && !__instance.IsDead && !__instance.IsFlaggedForDeath)
+                {
                     __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "-1 EVASION", FloatieMessage.MessageNature.Debuff));
+                }
+                else if (evasivePipsCurrent2 > 0 && Fields.KeptPip && !__instance.IsDead && !__instance.IsFlaggedForDeath)
+                {
+                    __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "EVASION KEPT", FloatieMessage.MessageNature.Debuff));
+                    Fields.KeptPip = false;
                 }
             }
             catch (Exception e) {
@@ -58,20 +66,43 @@ namespace PermanentEvasion {
                         acepilot = true;
                     }
                 }
-                if ((!acepilot && settings.OnlyAcePilot) || !settings.OnlyAcePilot) {
-                    if (__instance.weightClass == WeightClass.LIGHT && settings.LightLosePip) {
-
-                        Fields.LoosePip = true;
+                int test = 10;
+                int acePipsBonus = 0;
+                if (settings.PilotSkillToKeepPips)
+                {
+                    int perSkillPointToKeepPips = Math.Min(settings.PerSkillPointToKeepPips, 10);
+                    int acePilotPointToKeepPips = Math.Min(settings.AcePilotPointToKeepPips, 10);
+                    test += __instance.SkillPiloting * perSkillPointToKeepPips;
+                    if (acepilot)
+                    {
+                        test += __instance.SkillPiloting * Math.Max(acePilotPointToKeepPips, perSkillPointToKeepPips) ;
+                        acePipsBonus += settings.AcePilotBonusPips;
                     }
-                    else if (__instance.weightClass == WeightClass.MEDIUM && settings.MediumLosePip) {
-                        Fields.LoosePip = true;
+                }
+                else {
+                    test = settings.PercentageToKeepPips;
+                    if (acepilot) {
+                        test += settings.AcePilotBonusPercentage;
+                        acePipsBonus += settings.AcePilotBonusPips;
                     }
-                    else if (__instance.weightClass == WeightClass.HEAVY && settings.HeavyLosePip) {
-                        Fields.LoosePip = true;
-                    }
-                    else if (__instance.weightClass == WeightClass.ASSAULT && settings.AssaultLosePip) {
-                        Fields.LoosePip = true;
-                    }
+                }
+                int cap = Math.Min(settings.MaxTotalChanceTokeepPips, 100);
+                test = Math.Min(test, cap);
+                Fields.KeptPip = UnityEngine.Random.Range(1, 100) < test;
+                if (__instance.weightClass == WeightClass.LIGHT && settings.LightKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
+                    Fields.LoosePip = true;
+                }
+                else if (__instance.weightClass == WeightClass.MEDIUM && settings.MediumKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
+                    Fields.LoosePip = true;
+                }
+                else if (__instance.weightClass == WeightClass.HEAVY && settings.HeavyKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
+                    Fields.LoosePip = true;
+                }
+                else if (__instance.weightClass == WeightClass.ASSAULT && settings.AssaultKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
+                    Fields.LoosePip = true;
+                }
+                else if (!Fields.KeptPip) {
+                    Fields.LoosePip = true;
                 }
             }
             catch (Exception e) {
