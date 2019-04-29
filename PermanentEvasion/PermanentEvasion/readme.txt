@@ -30,4 +30,3 @@ Here the things that changed compared to PE:
 - If you succeed to keep to your permanent pip you will see "EVASION KEPT"
 
 I hope this is clear enough.
-Now I have to ask Morphyum and donZappo for their autorisation.
