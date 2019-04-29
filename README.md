@@ -51,7 +51,8 @@ Here the things that changed compared to PE:
 - If you succeed to keep to your permanent pip you will see "EVASION KEPT"
 
 ## Download
-I haven't figured that out yet.
+Download is available here:
+https://github.com/Red1812/PermanentEvasion/releases
     
 ## Install
 - Put  everything into \BATTLETECH\Mods\ folder.
