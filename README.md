@@ -36,7 +36,7 @@ Here the things that changed compared to PE:
 
 "AcePilotBonusPips" : 1
 
-- If you don't like the flat percentage for the chance of loosing a permanent pip I made a different version based on Piloting skill. The formula is the following "Pilot skill" x "PerSkillPointToKeepPips" or "Pilot skill" x "AcePilotPointToKeepPips" if the pilot has AcePilot. Default value are:
+- If you don't like the flat percentage for the chance of loosing a permanent pip I made a different version based on Piloting skill. The formula is the following 10 + "Pilot skill" x "PerSkillPointToKeepPips" or 10 + "Pilot skill" x "AcePilotPointToKeepPips" if the pilot has AcePilot. Default value are:
 
 "PerSkillPointToKeepPips" : 7
 
