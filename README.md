@@ -7,6 +7,8 @@ I liked the idea of donZappo's Semi-PermanentEvasion (SPE) regarding the limitat
 You can find donZappo's mod here:
 https://github.com/donZappo/Semi_Permanent_Evasion
 
+The mod is compatible with BT 1.6.
+
 ## Requirements
 
 * install [ModTek](https://github.com/BattletechModders/ModTek/releases) using the [instructions here](https://github.com/BattletechModders/ModTek)
@@ -26,7 +28,7 @@ Here the things that changed compared to PE:
 
 "AssaultKeepPipsCount" : 2
 
-- You can configure the chance (in percent) of a permaent pip to not be strip on a miss. Ace pilot can give a bonus. It will display -1 EVASION when that happen like in the non modded game. Default value are:
+- You can configure the chance (in percent) of a permanent pip to not be strip on a miss. Ace pilot can give a bonus. It will display -1 EVASION when that happen like in the non modded game. Default value are:
 
 "PercentageToKeepPips" : 50
 
