@@ -6,7 +6,7 @@
         "HeavyKeepPipsCount" : 3,
         "AssaultKeepPipsCount" : 2,
         "AcePilotBonusPips" : 1,
-		"PilotSkillToKeepPips" : true,
+		"PilotSkillToKeepPips" : false,
 		"PerSkillPointToKeepPips" : 6,
 		"AcePilotPointToKeepPips" : 8,
 		"MaxTotalChanceTokeepPips" : 90

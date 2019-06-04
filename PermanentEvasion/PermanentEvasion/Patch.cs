@@ -16,7 +16,7 @@ namespace PermanentEvasion {
             try {
 
                 AttackDirector.AttackSequence attackSequence = __instance.Combat.AttackDirector.GetAttackSequence(sequenceID);
-                if (attackSequence != null && attackSequence.attackDidDamage) {
+                if (attackSequence != null && attackSequence.GetAttackDidDamage(__instance.GUID)) {
                     List<Effect> list = __instance.Combat.EffectManager.GetAllEffectsTargeting(__instance).FindAll((Effect x) => x.EffectData.targetingData.effectTriggerType == EffectTriggerType.OnDamaged);
                     for (int i = 0; i < list.Count; i++) {
                         list[i].OnEffectTakeDamage(attackSequence.attacker, __instance);
@@ -31,12 +31,12 @@ namespace PermanentEvasion {
                     }
                 }
                 int evasivePipsCurrent = __instance.EvasivePipsCurrent;
-                if (attackSequence.attackDidDamage || Fields.LoosePip) {
+                if (attackSequence.GetAttackDidDamage(__instance.GUID) || Fields.LoosePip) {
                     __instance.ConsumeEvasivePip(true);
                     Fields.LoosePip = false;
                 }
                 int evasivePipsCurrent2 = __instance.EvasivePipsCurrent;
-                if (evasivePipsCurrent2 < evasivePipsCurrent && attackSequence.attackDidDamage && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
+                if (evasivePipsCurrent2 < evasivePipsCurrent && attackSequence.GetAttackDidDamage(__instance.GUID) && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
                     __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "HIT: -1 EVASION", FloatieMessage.MessageNature.Debuff));
                 }
                 else if (evasivePipsCurrent2 < evasivePipsCurrent && !__instance.IsDead && !__instance.IsFlaggedForDeath)
