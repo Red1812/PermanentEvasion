@@ -17,7 +17,10 @@ The mod is compatible with BT 1.6.
 
 All options are in settings.json.
 Here the things that changed compared to PE:
-- When a Mech is hit it will loose a pip. I modified the message to display HIT: -1 EVASION instead of the usual -1 EVASION.
+- When a Mech is hit it will loose a pip. I modified the message to display HIT: -1 EVASION instead of the usual -1 EVASION. Can be deactivated, change AllowHitStrip to false. Default:
+
+"AllowHitStrip": true
+
 - Like in SPE, you can set how many permanent pips each weight category can have. By default they are as follow:
 
 "LightKeepPipsCount" : 5
@@ -51,6 +54,10 @@ Here the things that changed compared to PE:
 "MaxTotalChanceTokeepPips" : 90
 
 - If you succeed to keep to your permanent pip you will see "EVASION KEPT"
+
+- You can set a minimum amout of damage received for stripping a pip after getting hit. That should mitigate the missile volley effect:
+
+"MinDamageForEvasionStrip": 25
 
 ## Download
 Download is available here:
