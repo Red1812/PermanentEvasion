@@ -52,7 +52,7 @@ namespace PermanentEvasion {
                     Fields.LoosePip = false;
                 }
                 int evasivePipsCurrent2 = __instance.EvasivePipsCurrent;
-                if (evasivePipsCurrent2 < evasivePipsCurrent && (totalDamageReceived > settings.MinDamageForEvasionStrip) && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
+                if (evasivePipsCurrent2 < evasivePipsCurrent && (totalDamageReceived > settings.MinDamageForEvasionStrip) && settings.AllowHitStrip && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
                     __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "HIT: -1 EVASION", FloatieMessage.MessageNature.Debuff));
                 }
                 else if (evasivePipsCurrent2 < evasivePipsCurrent && !__instance.IsDead && !__instance.IsFlaggedForDeath)
