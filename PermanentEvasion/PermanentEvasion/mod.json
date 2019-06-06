@@ -2,11 +2,11 @@
     "Name": "PermanentEvasion",
     "Enabled": true,
 
-    "Version": "v1.1.6",
+    "Version": "v1.1.6.1",
     "Description": "Let's mechs keep their evasion pips when beeing fired at.",
     "Author": "Morphyum, Redferne",
     "Website": "https://github.com/Morphyum/PermanentEvasion",
     "Contact": "",
 	
-	"DLL": "PermanentEvasion.dll",
+	"DLL": "PermanentEvasion.dll"
 }

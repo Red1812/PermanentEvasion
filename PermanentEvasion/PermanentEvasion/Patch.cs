@@ -31,12 +31,28 @@ namespace PermanentEvasion {
                     }
                 }
                 int evasivePipsCurrent = __instance.EvasivePipsCurrent;
-                if (attackSequence.GetAttackDidDamage(__instance.GUID) || Fields.LoosePip) {
+                Settings settings = Helper.LoadSettings();
+                float totalDamageReceived = 1;
+                if (attackSequence.GetAttackDidDamage(__instance.GUID)) {
+                    totalDamageReceived += attackSequence.GetArmorDamageDealt(__instance.GUID) + attackSequence.GetStructureDamageDealt(__instance.GUID);
+                    if ((totalDamageReceived > settings.MinDamageForEvasionStrip) && settings.AllowHitStrip)
+                    {
+                        __instance.ConsumeEvasivePip(true);
+                        Fields.LoosePip = false;
+                    }
+                    else if (Fields.LoosePip)
+                    {
+                        __instance.ConsumeEvasivePip(true);
+                        Fields.LoosePip = false;
+                    }
+                }
+                else if (Fields.LoosePip)
+                {
                     __instance.ConsumeEvasivePip(true);
                     Fields.LoosePip = false;
                 }
                 int evasivePipsCurrent2 = __instance.EvasivePipsCurrent;
-                if (evasivePipsCurrent2 < evasivePipsCurrent && attackSequence.GetAttackDidDamage(__instance.GUID) && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
+                if (evasivePipsCurrent2 < evasivePipsCurrent && (totalDamageReceived > settings.MinDamageForEvasionStrip) && !__instance.IsDead && !__instance.IsFlaggedForDeath) {
                     __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "HIT: -1 EVASION", FloatieMessage.MessageNature.Debuff));
                 }
                 else if (evasivePipsCurrent2 < evasivePipsCurrent && !__instance.IsDead && !__instance.IsFlaggedForDeath)

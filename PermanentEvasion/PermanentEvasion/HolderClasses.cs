@@ -11,6 +11,8 @@
         public int PerSkillPointToKeepPips;
         public int AcePilotPointToKeepPips;
         public int MaxTotalChanceTokeepPips;
+        public float MinDamageForEvasionStrip;
+        public bool AllowHitStrip;
     }
 
     public static class Fields {
