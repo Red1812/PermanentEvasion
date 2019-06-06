@@ -29,7 +29,7 @@ Here the things that changed compared to PE:
 - You can set the max chance to keep your permanent evasion pip so there is always a chance to loose your permanent pip. Default value is:
 		"MaxTotalChanceTokeepPips" : 90
 - If you succeed to keep to your permanent pip you will see "EVASION KEPT"
-- You can set a minimum amout of damage received for for stripping a pip after getting hit. That should mitigate the missile volley effect:
+- You can set a minimum amout of damage received for stripping a pip after getting hit. That should mitigate the missile volley effect:
 		"MinDamageForEvasionStrip": 25
 
 I hope this is clear enough.
