@@ -13,6 +13,13 @@
         public int MaxTotalChanceTokeepPips;
         public float MinDamageForEvasionStrip;
         public bool AllowHitStrip;
+        public int Movement210KeepPipsCount;
+        public int Movement190KeepPipsCount;
+        public int Movement165KeepPipsCount;
+        public int Movement140KeepPipsCount;
+        public int Movement120KeepPipsCount;
+        public int Movement95KeepPipsCount;
+        public bool UseMovement;
     }
 
     public static class Fields {

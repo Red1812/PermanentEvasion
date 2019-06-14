@@ -105,20 +105,59 @@ namespace PermanentEvasion {
                 int cap = Math.Min(settings.MaxTotalChanceTokeepPips, 100);
                 test = Math.Min(test, cap);
                 Fields.KeptPip = UnityEngine.Random.Range(1, 100) < test;
-                if (__instance.weightClass == WeightClass.LIGHT && settings.LightKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
-                    Fields.LoosePip = true;
+                if (!settings.UseMovement)
+                {
+                    if (__instance.weightClass == WeightClass.LIGHT && settings.LightKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.weightClass == WeightClass.MEDIUM && settings.MediumKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.weightClass == WeightClass.HEAVY && settings.HeavyKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.weightClass == WeightClass.ASSAULT && settings.AssaultKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (!Fields.KeptPip)
+                    {
+                        Fields.LoosePip = true;
+                    }
                 }
-                else if (__instance.weightClass == WeightClass.MEDIUM && settings.MediumKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
-                    Fields.LoosePip = true;
-                }
-                else if (__instance.weightClass == WeightClass.HEAVY && settings.HeavyKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
-                    Fields.LoosePip = true;
-                }
-                else if (__instance.weightClass == WeightClass.ASSAULT && settings.AssaultKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent) {
-                    Fields.LoosePip = true;
-                }
-                else if (!Fields.KeptPip) {
-                    Fields.LoosePip = true;
+                else
+                {
+                    if (__instance.MaxWalkDistance == 210f && settings.Movement210KeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.MaxWalkDistance == 190f && settings.Movement190KeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.MaxWalkDistance == 165f && settings.Movement165KeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.MaxWalkDistance == 140f && settings.Movement140KeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.MaxWalkDistance == 120f && settings.Movement120KeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (__instance.MaxWalkDistance == 95f && settings.Movement95KeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
+                    {
+                        Fields.LoosePip = true;
+                    }
+                    else if (!Fields.KeptPip)
+                    {
+                        Fields.LoosePip = true;
+                    }
                 }
             }
             catch (Exception e) {

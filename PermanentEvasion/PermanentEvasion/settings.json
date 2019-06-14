@@ -11,5 +11,12 @@
   "AcePilotPointToKeepPips": 8,
   "MaxTotalChanceTokeepPips": 90,
   "MinDamageForEvasionStrip": 25,
-  "AllowHitStrip": true
+  "AllowHitStrip": true,
+  "Movement210KeepPipsCount": 5,
+  "Movement190KeepPipsCount": 4,
+  "Movement165KeepPipsCount" : 4,
+  "Movement140KeepPipsCount": 4,
+  "Movement120KeepPipsCount": 3,
+  "Movement95KeepPipsCount": 2,
+  "UseMovement": false
 }
