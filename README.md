@@ -7,7 +7,7 @@ I liked the idea of donZappo's Semi-PermanentEvasion (SPE) regarding the limitat
 You can find donZappo's mod here:
 https://github.com/donZappo/Semi_Permanent_Evasion
 
-The mod is compatible with BT 1.6.
+The mod is compatible with BT 1.6.2.
 
 ## Requirements
 
@@ -58,6 +58,20 @@ Here the things that changed compared to PE:
 - You can set a minimum amout of damage received for stripping a pip after getting hit. That should mitigate the missile volley effect:
 
 "MinDamageForEvasionStrip": 25
+
+- Added back donZappo Semi-Permanent Evasion pips retain system based on Mech speed. To enable it put "UseMovement" to true. The default settings are the following:
+
+Move 210 - 5 Permanent Evasion
+
+Move 190 - 4 Permanent Evasion
+
+Move 165 - 4 Permanent Evasion
+
+Move 140 - 4 Permanent Evasion
+
+Move 120 - 3 Permanent Evasion
+
+Move 95 - 2 Permanent Evasion
 
 ## Download
 Download is available here:
