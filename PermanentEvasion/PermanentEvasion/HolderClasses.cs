@@ -20,6 +20,7 @@
         public int Movement120KeepPipsCount;
         public int Movement95KeepPipsCount;
         public bool UseMovement;
+        public int JumpBonusPip;
     }
 
     public static class Fields {

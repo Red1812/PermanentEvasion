@@ -31,13 +31,7 @@ Here the things that changed compared to PE:
 - If you succeed to keep to your permanent pip you will see "EVASION KEPT"
 - You can set a minimum amout of damage received for stripping a pip after getting hit. That should mitigate the missile volley effect:
 		"MinDamageForEvasionStrip": 25
-- Added back donZappo Semi-Permanent Evasion pips retain system based on Mech speed. To enable it put "UseMovement" to true. The default settings are the following:
-
-Move 210 - 5 Permanent Evasion
-Move 190 - 4 Permanent Evasion
-Move 165 - 4 Permanent Evasion
-Move 140 - 4 Permanent Evasion
-Move 120 - 3 Permanent Evasion
-Move 95 - 2 Permanent Evasion
+- You can now give a bonus permanent pip for jumping. Default value is:
+		"JumpBonusPip": 1
 
 I hope this is clear enough.

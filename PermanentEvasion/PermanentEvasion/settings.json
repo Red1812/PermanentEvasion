@@ -18,5 +18,6 @@
   "Movement140KeepPipsCount": 4,
   "Movement120KeepPipsCount": 3,
   "Movement95KeepPipsCount": 2,
-  "UseMovement": false
+  "UseMovement": false,
+  "JumpBonusPip": 1
 }

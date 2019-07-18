@@ -102,6 +102,9 @@ namespace PermanentEvasion {
                         acePipsBonus += settings.AcePilotBonusPips;
                     }
                 }
+                if (__instance.HasMovedThisRound && __instance.JumpedLastRound) {
+                    acePipsBonus += settings.JumpBonusPip;
+                }
                 int cap = Math.Min(settings.MaxTotalChanceTokeepPips, 100);
                 test = Math.Min(test, cap);
                 Fields.KeptPip = UnityEngine.Random.Range(1, 100) < test;
