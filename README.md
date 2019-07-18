@@ -73,6 +73,9 @@ Move 120 - 3 Permanent Evasion
 
 Move 95 - 2 Permanent Evasion
 
+- You can now give a bonus permanent pip for jumping. Default value is:
+		"JumpBonusPip": 1
+
 ## Download
 Download is available here:
 https://github.com/Red1812/PermanentEvasion/releases
