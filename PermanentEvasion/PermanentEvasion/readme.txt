@@ -31,7 +31,8 @@ Here the things that changed compared to PE:
 - If you succeed to keep to your permanent pip you will see "EVASION KEPT"
 - You can set a minimum amout of damage received for stripping a pip after getting hit. That should mitigate the missile volley effect:
 		"MinDamageForEvasionStrip": 25
-- You can now give a bonus permanent pip for jumping. Default value is:
+- You can now give a bonus permanent pip for jumping, can optionnaly be linked to AcePilot. Default value is:
 		"JumpBonusPip": 1
+		"LinkedToAcePilot": true
 
 I hope this is clear enough.

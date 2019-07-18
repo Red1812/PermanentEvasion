@@ -102,7 +102,15 @@ namespace PermanentEvasion {
                         acePipsBonus += settings.AcePilotBonusPips;
                     }
                 }
-                if (__instance.HasMovedThisRound && __instance.JumpedLastRound) {
+                if (settings.LinkedToAcePilot)
+                {
+                    if (__instance.HasMovedThisRound && __instance.JumpedLastRound && acepilot)
+                    {
+                        acePipsBonus += settings.JumpBonusPip;
+                    }
+                }
+                else if (__instance.HasMovedThisRound && __instance.JumpedLastRound)
+                {
                     acePipsBonus += settings.JumpBonusPip;
                 }
                 int cap = Math.Min(settings.MaxTotalChanceTokeepPips, 100);
