@@ -31,7 +31,7 @@ namespace PermanentEvasion {
                     }
                 }
                 int evasivePipsCurrent = __instance.EvasivePipsCurrent;
-                Settings settings = Helper.LoadSettings();
+                var settings = PermanentEvasion.Settings;
                 float totalDamageReceived = 1;
                 if (attackSequence.GetAttackDidDamage(__instance.GUID)) {
                     totalDamageReceived += attackSequence.GetArmorDamageDealt(__instance.GUID) + attackSequence.GetStructureDamageDealt(__instance.GUID);
@@ -66,7 +66,7 @@ namespace PermanentEvasion {
                 }
             }
             catch (Exception e) {
-                Logger.LogError(e);
+                Logger.Error(e);
             }
         }
     }
@@ -74,7 +74,7 @@ namespace PermanentEvasion {
     [HarmonyPatch(typeof(Mech), "ResolveAttackSequence")]
     public static class Mech_ResolveAttackSequence {
         static void Prefix(Mech __instance) {
-            Settings settings = Helper.LoadSettings();
+            var settings = PermanentEvasion.Settings;
             try {
                 bool acepilot = false;
                 foreach (Ability ab in __instance.pilot.Abilities) {
@@ -172,7 +172,7 @@ namespace PermanentEvasion {
                 }
             }
             catch (Exception e) {
-                Logger.LogError(e);
+                Logger.Error(e);
             }
         }
     }

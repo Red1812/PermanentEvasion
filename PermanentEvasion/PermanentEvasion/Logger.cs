@@ -1,21 +1,48 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 
-namespace PermanentEvasion {
-    public class Logger {
-        static string filePath = $"{PermanentEvasion.ModDirectory}/Log.txt";
-        public static void LogError(Exception ex) {
-            using (StreamWriter writer = new StreamWriter(filePath, true)) {
-                writer.WriteLine("Message :" + ex.Message + "<br/>" + Environment.NewLine + "StackTrace :" + ex.StackTrace +
-                   "" + Environment.NewLine + "Date :" + DateTime.Now.ToString());
-                writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+namespace PermanentEvasion
+{
+    public static class Logger
+    {
+        internal static string LogFilePath =>
+            Directory.GetParent(Assembly.GetExecutingAssembly().Location).FullName + "\\Log.txt";
+
+        public static void Error(Exception ex)
+        {
+            using (var writer = new StreamWriter(LogFilePath, true))
+            {
+                writer.WriteLine($"Message: {ex.Message}");
+                writer.WriteLine($"StackTrace: {ex.StackTrace}");
+                writer.WriteLine($"Source: {ex.Source}");
+                writer.WriteLine($"Data: {ex.Data}");
             }
         }
 
-        public static void LogLine(String line) {
-            using (StreamWriter writer = new StreamWriter(filePath, true)) {
-                writer.WriteLine(line + Environment.NewLine + "Date :" + DateTime.Now.ToString());
-                writer.WriteLine(Environment.NewLine + "-----------------------------------------------------------------------------" + Environment.NewLine);
+        public static void LogDebug(string line)
+        {
+            if (!PermanentEvasion.Settings.Debug) return;
+            using (var writer = new StreamWriter(LogFilePath, true))
+            {
+                writer.WriteLine(line);
+            }
+        }
+
+        public static void Log(string line)
+        {
+            using (var writer = new StreamWriter(LogFilePath, true))
+            {
+                writer.WriteLine(line);
+            }
+        }
+
+        public static void Clear()
+        {
+            if (!PermanentEvasion.Settings.Debug) return;
+            using (var writer = new StreamWriter(LogFilePath, false))
+            {
+                writer.WriteLine($"{DateTime.Now.ToLongTimeString()} Permanent Evasion Init");
             }
         }
     }
