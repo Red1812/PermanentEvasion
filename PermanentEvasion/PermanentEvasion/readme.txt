@@ -42,8 +42,6 @@ Move 95 - 2 Permanent Evasion
 
 - You can now give a bonus permanent pip for jumping, can optionnaly be linked to AcePilot. Default value is:
 		"JumpBonusPip": 1
-- You can now give a bonus permanent pip for jumping, can optionnaly be linked to AcePilot. Default value is:
-		"JumpBonusPip": 1
 		"LinkedToAcePilot": true
 
 I hope this is clear enough.
