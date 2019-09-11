@@ -2,6 +2,7 @@
 using Harmony;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace PermanentEvasion {
 
@@ -115,7 +116,8 @@ namespace PermanentEvasion {
                 }
                 int cap = Math.Min(settings.MaxTotalChanceTokeepPips, 100);
                 test = Math.Min(test, cap);
-                Fields.KeptPip = UnityEngine.Random.Range(1, 100) < test;
+                var random = new Random();
+                Fields.KeptPip = random.Next(1, 100) < test;
                 if (!settings.UseMovement)
                 {
                     if (__instance.weightClass == WeightClass.LIGHT && settings.LightKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
