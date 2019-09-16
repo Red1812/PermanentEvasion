@@ -7,7 +7,7 @@ I liked the idea of donZappo's Semi-PermanentEvasion (SPE) regarding the limitat
 You can find donZappo's mod here:
 https://github.com/donZappo/Semi_Permanent_Evasion
 
-The mod is compatible with BT 1.6.2.
+The mod is compatible with BT 1.7.
 
 ## Requirements
 
