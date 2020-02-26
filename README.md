@@ -84,5 +84,5 @@ https://github.com/Red1812/PermanentEvasion/releases
     
 ## Install
 - Put  everything into \BATTLETECH\Mods\ folder.
-- If you want to change the settings do so in the settings.json
+- If you want to change the settings do so in the mod.json
 - Start the game.
