@@ -20,5 +20,6 @@
     "Movement95KeepPipsCount": 2,
     "UseMovement": false,
     "JumpBonusPip": 1,
-    "LinkedToAcePilot": true
+    "LinkedToAcePilot": true,
+	"UseQuirks": false
 }

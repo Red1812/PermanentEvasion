@@ -138,6 +138,13 @@ namespace PermanentEvasion
                 test = Math.Min(test, cap);
                 var random = new Random();
                 Fields.KeptPip = random.Next(1, 100) < test;
+
+                if (settings.UseQuirks && __instance.GetTags().Contains("BR_MQ_Victor") && __instance.EvasivePipsCurrent <= 2)
+                {
+                    Fields.LoosePip = false;
+                    return;
+                }
+
                 if (!settings.UseMovement)
                 {
                     if (__instance.weightClass == WeightClass.LIGHT && settings.LightKeepPipsCount + acePipsBonus < __instance.EvasivePipsCurrent)
