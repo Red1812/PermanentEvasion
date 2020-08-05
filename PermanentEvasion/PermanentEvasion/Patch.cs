@@ -101,16 +101,16 @@ namespace PermanentEvasion
                         acepilot = true;
                     }
                 }
-                int test = 10;
+                int test = 0;
                 int acePipsBonus = 0;
                 if (settings.PilotSkillToKeepPips)
                 {
                     int perSkillPointToKeepPips = Math.Min(settings.PerSkillPointToKeepPips, 10);
                     int acePilotPointToKeepPips = Math.Min(settings.AcePilotPointToKeepPips, 10);
-                    test += __instance.SkillPiloting * perSkillPointToKeepPips;
+                    test = __instance.SkillPiloting * perSkillPointToKeepPips;
                     if (acepilot)
                     {
-                        test += __instance.SkillPiloting * Math.Max(acePilotPointToKeepPips, perSkillPointToKeepPips);
+                        test = __instance.SkillPiloting * Math.Max(acePilotPointToKeepPips, perSkillPointToKeepPips);
                         acePipsBonus += settings.AcePilotBonusPips;
                     }
                 }
@@ -137,7 +137,7 @@ namespace PermanentEvasion
                 int cap = Math.Min(settings.MaxTotalChanceTokeepPips, 100);
                 test = Math.Min(test, cap);
                 var random = new Random();
-                Fields.KeptPip = random.Next(1, 100) < test;
+                Fields.KeptPip = random.Next(1, 101) <= test;
 
                 if (settings.UseQuirks && __instance.GetTags().Contains("BR_MQ_Victor") && __instance.EvasivePipsCurrent <= 2)
                 {
