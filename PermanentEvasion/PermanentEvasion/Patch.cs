@@ -74,7 +74,7 @@ namespace PermanentEvasion
                 }
                 else if (evasivePipsCurrent2 > 0 && Fields.KeptPip && !__instance.IsDead && !__instance.IsFlaggedForDeath)
                 {
-                    __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "EVASION KEPT", FloatieMessage.MessageNature.Debuff));
+                    __instance.Combat.MessageCenter.PublishMessage(new FloatieMessage(__instance.GUID, __instance.GUID, "EVASION KEPT", FloatieMessage.MessageNature.Buff));
                     Fields.KeptPip = false;
                 }
             }
