@@ -31,5 +31,6 @@ namespace PermanentEvasion
         public bool UseMovement;
         public int JumpBonusPip;
         public bool LinkedToAcePilot;
+        public bool UseQuirks;
     }
 }
